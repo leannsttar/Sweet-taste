@@ -8,5 +8,9 @@
 </head>
 <body>
     <h1>tas logueado</h1>
+<form action="../processes/close-session.php" method="post">
+    <input type="submit" value="Cerrar sesión">
+</form>
+
 </body>
 </html>
