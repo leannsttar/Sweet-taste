@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login/Sign up</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../../output.css">
 </head>
 
 <body>
@@ -13,6 +13,7 @@
     include('../../config/db.php');
 
     ?>
+    <h1 class="bg-red-400">fjaslkd</h1>
 
     <div class="form-box">
         <div class="container">
