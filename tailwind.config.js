@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'signup': "url('./client/images/bg_signup.jpg')",
-        'lido': "url('../images/lido_logo.png')"
+        'login': "url('./client/images/bg_login.jpg')"
       },
       textColor:{
         'primary': '#CC2D4A'
