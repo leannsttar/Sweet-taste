@@ -3,7 +3,7 @@
 session_start();
 session_destroy();
 
-header('');
+header('../views/form-login.php');
 
 
 ?>
