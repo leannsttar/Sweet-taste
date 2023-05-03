@@ -16,6 +16,8 @@ var productos = [
     }
 ];
 
+//aquí se añaden los nuevos componentes xd
+
 var carrito = [];
 
 function agregarAlCarrito(nombre, precio) {
