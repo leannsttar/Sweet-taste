@@ -2,7 +2,9 @@
 module.exports = {
   content: [
     "./dist/client/views/*.php",
-    "./dist/client/views/*.html"
+    "./dist/client/views/*.html",
+    "./dist/admin/views/*.php",
+    "./dist/admin/views/*.html"
   ],
   theme: {
     extend: {
