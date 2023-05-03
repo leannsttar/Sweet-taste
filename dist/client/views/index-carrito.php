@@ -31,4 +31,10 @@
     <button id="vaciar-carrito">Vaciar carrito</button>
 </div>
 
+<input type="text" id="search" placeholder="Buscar producto">
+
+<div id="productos">
+</div>
+
 <script src="../processes/js/carrito.js"></script>
+<script src="../processes/js/buscador.js"></script>
