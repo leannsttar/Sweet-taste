@@ -13,7 +13,7 @@ class BD {
             //Crea una nueva instancia de la clase PDO para conectarse a una base de datos MySQL
             
             self::$instancia = new PDO('mysql:host=localhost;dbname=sweet_taste', 'root', '', $opciones);
-            echo "conectado";
+            // echo "conectado";
         }
         return self::$instancia;
     }
