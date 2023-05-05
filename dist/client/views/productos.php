@@ -48,4 +48,6 @@
         </div>
     </div>
 </body>
+
+<script src="../processes/js/buscador"></script>
 </html>

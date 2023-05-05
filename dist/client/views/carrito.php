@@ -67,4 +67,6 @@
         </div>
     </div>
 </body>
+
+<script src="../processes/js/carrito"></script>
 </html>
