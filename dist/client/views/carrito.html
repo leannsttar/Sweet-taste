@@ -56,10 +56,10 @@
                         </div>
                         <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="bg-black border-[1px] border-[black] font-light text-2xl text-white px-4 h-16 w-full hover:bg-white hover:text-black transition-all ease-in-out duration-300">Confirm Order</button>
                     </div>
-                    <div id="authentication-modal" aria-hidden="true" class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
-                        <div class="relative w-full max-w-md px-4 h-full md:h-auto">
+                    <div id="authentication-modal" aria-hidden="true" class="payWhole hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+                        <div class=" relative w-full max-w-md px-4 h-full md:h-auto">
                             <!-- Modal content -->
-                            <div class="bg-white rounded-lg relative dark:bg-[] shadow-2xl">
+                            <div class="bg-white rounded-lg relative shadow-2xl">
                                 <div class="flex justify-end p-2">
                                     <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="authentication-modal">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
@@ -103,14 +103,14 @@
                                     </div>
                                     <div class="flex space-x-3 justify-end pt-7">
                                         <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="py-2 rounded-full px-4 border-[1px] border-gray-300 font-semibold hover:bg-black hover:text-white transition-all ease-in-out duration-300">Cancel</button>
-                                        <button type="button" data-modal-target="done-modal" data-modal-toggle="done-modal" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"  class="py-2 bg-black text-white rounded-full px-8 border-[1px] border-gray-300 font-semibold hover:bg-white hover:text-black transition-all ease-in-out duration-300">Pay</button>
+                                        <button id="pay" type="button" data-modal-target="done-modal" data-modal-toggle="done-modal" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"  class="py-2 bg-black text-white rounded-full px-8 border-[1px] border-gray-300 font-semibold hover:bg-white hover:text-black transition-all ease-in-out duration-300">Pay</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div> 
-                    <div id="done-modal" aria-hidden="true" class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
-                        <div class="bg-white p-6  md:mx-auto">
+                    <div id="done-modal" aria-hidden="true" class=" hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+                        <div class="bg-white p-6  md:mx-auto shadow-2xl">
                           <svg viewBox="0 0 24 24" class="text-green-600 w-16 h-16 mx-auto my-6">
                               <path fill="currentColor"
                                   d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z">
@@ -120,8 +120,8 @@
                               <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">Payment Done!</h3>
                               <p class="text-gray-600 my-2">Thank you for completing your secure online payment.</p>
                               <p> Have a great day!  </p>
-                              <div class="py-10 text-center">
-                                  <a href="./historial.php" class="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
+                              <div class="cursor-pointer py-10 text-center">
+                                  <a onclick="location.reload()" class=" px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
                                       GO BACK 
                                  </a>
                               </div>
@@ -142,4 +142,13 @@
 
 <script src="../processes/js/carrito"></script>
 <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>
+<script>
+    let pay = document.getElementById('pay');
+    let payC = document.querySelector('.payWhole')
+
+    pay.addEventListener('click', () => {
+        payC.classList.add('hidden')
+    })
+</script>
+
 </html>
