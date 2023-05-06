@@ -26,21 +26,45 @@
             </div>
             <div class="flex w-full justify-between my-14 items-center">
                 <div class="flex space-x-7 w-full">
-                    <button class="font-semibold px-8 h-10 rounded-md border-[1px] border-[#FA8F88] text-lg hover:bg-[#FA8F88] transition-all ease-in-out duration-300">Pasteles</button>
-                    <button class="font-semibold px-8 h-10 rounded-md border-[1px] border-[#FA8F88] text-lg hover:bg-[#FA8F88] transition-all ease-in-out duration-300">Panes</button>
-                    <button class="font-semibold px-8 h-10 rounded-md border-[1px] border-[#FA8F88] text-lg hover:bg-[#FA8F88] transition-all ease-in-out duration-300">Galletas</button>
+                    <button class="font-semibold px-8 h-10 rounded-md border-[1px] border-[#FA8F88] text-lg hover:bg-[#FA8F88] transition-all ease-in-out duration-300" data-categoria="pasteles">Pasteles</button>
+                    <button class="font-semibold px-8 h-10 rounded-md border-[1px] border-[#FA8F88] text-lg hover:bg-[#FA8F88] transition-all ease-in-out duration-300" data-categoria="panes">Panes</button>
+                    <button class="font-semibold px-8 h-10 rounded-md border-[1px] border-[#FA8F88] text-lg hover:bg-[#FA8F88] transition-all ease-in-out duration-300" data-categoria="galletas">Galletas</button>
                 </div>
                 <div>
-                    <input type="text" placeholder="Buscar" class="bg-[#fafafa] w-96 rounded-lg outline-none px-3 py-1">
+                    <input type="text" id="search" placeholder="Buscar" class="bg-[#fafafa] w-96 rounded-lg outline-none px-3 py-1">
+                
+
+                    </div>
+            </div>
+            <div>
+                <div class="p-3 border-[1px] shadow-xl rounded-xl w-64">
+                    <img src="../images/chococake.png" alt="" class="rounded-xl">
+                    <div class="my-5 px-4">
+                        <p class="text-[#282424] text-2xl font-bold">Pastel 1</p>
+                        <p class="text-[#666666] font-light">Pastel de chocolate</p>
+                        <p class="text-[#282424] text-4xl font-bold">$ 10.50</p>
+                    </div>
+                    <button class="bg-[#282424] w-full flex justify-center py-1 rounded-3xl hover:bg-[#666666] transition-all ease-in-out duration-300 "><img src="../images/add_cart.png" alt="" class=""></button>
                 </div>
             </div>
             <div>
                 <div class="p-3 border-[1px] shadow-xl rounded-xl w-64">
                     <img src="../images/chococake.png" alt="" class="rounded-xl">
                     <div class="my-5 px-4">
-                        <p class="text-[#282424] text-2xl font-bold">Pastel</p>
+                        <p class="text-[#282424] text-2xl font-bold">Pastel 2</p>
                         <p class="text-[#666666] font-light">Pastel de chocolate</p>
-                        <p class="text-[#282424] text-4xl font-bold">$ 10.50</p>
+                        <p class="text-[#282424] text-4xl font-bold">$ 12.75</p>
+                    </div>
+                    <button class="bg-[#282424] w-full flex justify-center py-1 rounded-3xl hover:bg-[#666666] transition-all ease-in-out duration-300 "><img src="../images/add_cart.png" alt="" class=""></button>
+                </div>
+            </div>
+            <div>
+                <div class="p-3 border-[1px] shadow-xl rounded-xl w-64">
+                    <img src="../images/chococake.png" alt="" class="rounded-xl">
+                    <div class="my-5 px-4">
+                        <p class="text-[#282424] text-2xl font-bold">Pastel 3</p>
+                        <p class="text-[#666666] font-light">Pastel de chocolate</p>
+                        <p class="text-[#282424] text-4xl font-bold">$ 15.00</p>
                     </div>
                     <button class="bg-[#282424] w-full flex justify-center py-1 rounded-3xl hover:bg-[#666666] transition-all ease-in-out duration-300 "><img src="../images/add_cart.png" alt="" class=""></button>
                 </div>
@@ -48,4 +72,6 @@
         </div>
     </div>
 </body>
+
+<script src="../processes/js/buscador.js"></script>
 </html>
