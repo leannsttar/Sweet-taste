@@ -20,7 +20,7 @@ if ($_POST) {
     } else {
         echo "<script>
         alert('Contraseña o usuario incorrecto :)');
-        window.location.href = './form-login.php';
+        window.location.href = '../views/form-login.php';
         </script>";
     }
 }
