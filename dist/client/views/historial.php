@@ -20,7 +20,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex bg-[#FA8F88] p-6 rounded-xl w-[400px]">
+
+                    <!-- <div class="flex bg-[#FA8F88] p-6 rounded-xl w-[400px]">
                         <img src="../images/chococake.png" alt="" class="rounded-full w-20 h-20 object-cover mr-8">
                         <div class="flex space-x-16 items-center justify-between w-full">
                             <div class="space-y-2">
@@ -37,8 +38,8 @@
                                 <p class="text-lg">$20.00</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex bg-[#FA8F88] p-6 rounded-xl w-[400px]">
+                    </div> -->
+                    <!-- <div class="flex bg-[#FA8F88] p-6 rounded-xl w-[400px]">
                         <img src="../images/chococake.png" alt="" class="rounded-full w-20 h-20 object-cover mr-8">
                         <div class="flex space-x-16 items-center justify-between w-full">
                             <div class="space-y-2">
@@ -46,7 +47,8 @@
                                 <p class="text-lg">$20.00</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+                    
                 </div>
             </div>
         </div>

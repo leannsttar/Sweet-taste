@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 07-05-2023 a las 18:37:17
+-- Tiempo de generación: 07-05-2023 a las 20:56:45
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.1.10
 
@@ -31,6 +31,29 @@ CREATE TABLE `carrito` (
   `id_producto` int NOT NULL,
   `cantidad` int NOT NULL,
   `id_carrito` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `historial`
+--
+
+CREATE TABLE `historial` (
+  `id_historial` int NOT NULL,
+  `fecha` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `historial producto`
+--
+
+CREATE TABLE `historial producto` (
+  `id` int NOT NULL,
+  `id_historial` int NOT NULL,
+  `id_ producto` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -89,6 +112,18 @@ ALTER TABLE `carrito`
   ADD KEY `id` (`id_producto`);
 
 --
+-- Indices de la tabla `historial`
+--
+ALTER TABLE `historial`
+  ADD PRIMARY KEY (`id_historial`);
+
+--
+-- Indices de la tabla `historial producto`
+--
+ALTER TABLE `historial producto`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
@@ -109,6 +144,18 @@ ALTER TABLE `users`
 --
 ALTER TABLE `carrito`
   MODIFY `id_carrito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `historial`
+--
+ALTER TABLE `historial`
+  MODIFY `id_historial` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `historial producto`
+--
+ALTER TABLE `historial producto`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
