@@ -1,5 +1,60 @@
-<?php include './templates/header.php' ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../output.css">
+</head>
+<?php
 
+// Hacer la conexión a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "sweet_taste";
+
+// Crear la conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("La conexión ha fallado: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM carrito INNER JOIN products ON carrito.id_producto=products.id";
+$resultado = $conn->query($sql);
+$misProductos = [];
+
+// Verificar si hay resultados
+if ($resultado->num_rows > 0) {
+  // Recorrer los resultados y mostrarlos
+    while ($fila = $resultado->fetch_assoc()) {
+        $misProductos[] = $fila;
+    }
+} else {
+    // echo "No se encontraron resultados";
+}
+
+// print_r($misProductos);
+
+// Cerrar la conexión
+$conn->close();
+
+
+?>
+<body class="flex">
+    <div class="h-screen w-[13%] flex justify-center items-center">
+        <div class="flex flex-col bg-black text-white pt-4 justify-center items-center rounded-3xl fixed">
+            <div class="py-7 w-full flex justify-center"><img src="../images/lido_logo.png" alt="" class="w-32"></div>
+            <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/Home.svg" alt=""></div>
+            <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/menu.svg" alt=""></div>
+            <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/cartt.svg" alt=""></div>
+            <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/historial.png" alt=""></div>
+            <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center rounded-b-3xl"><img src="../images/signout.svg" alt=""></div>
+        </div>
+    </div>
     <div class="h-screen w-[87%] flex flex-col">
         <div class="w-[95%] flex flex-col mt-[55px] space-y-16">
             <div class="flex justify-between w-full">
@@ -10,36 +65,31 @@
                 </div>
             </div>
             <div class="flex space-x-20">
-                <div class="w-[60%]">
-                    <div class="flex bg-[#FA8F88] p-6 rounded-xl w-full">
-                        <img src="../images/chococake.png" alt="" class="rounded-full w-20 h-20 object-cover mr-8">
-                        <div class="flex space-x-16 items-center justify-between w-full">
-                            <div class="space-y-2">
-                                <p class="text-2xl font-semibold">Chocopastel</p>
-                                <p class="text-lg">$20.00</p>
-                            </div>
-                            <div class="flex w-full justify-end items-center space-x-16">
-                                <div class="flex space-x-3 items-center">
-                                    <p class="font-bold text-xl">-</p>
-                                    <p class="bg-white px-4 py-1 rounded-md">1</p>
-                                    <p class="font-bold text-xl">+</p>
-                                </div>
-                                <button class="cursor-pointer"><img src="../images/x.svg" alt="" class="w-5 h-5 "></button>
-                            </div>
+                <div class="w-[60%]" id="lista-carrito">
+                    <?php  foreach($misProductos as $producto){?>
+                        <form method="POST" action="../processes/eliminar-carrito.php" class="flex bg-[#FA8F88] p-6 rounded-xl w-full">
+                    <img src="../images/chococake.png" alt="" class="rounded-full w-20 h-20 object-cover mr-8">
+                    <div class="flex space-x-16 items-center justify-between w-full">
+                        <div class="space-y-2" id="cart-items-container">
+                            <p class="text-2xl font-semibold"><?php echo $producto['nombre']?></p>
+                            <p class="text-lg"><?php echo $producto['precio']?></p>
+                        </div>
+                        <div class="flex w-full justify-end items-center space-x-16">
+                            <button type="submit" name="Id" value="<?php echo $producto['id_carrito']?>" class="cursor-pointer"><img src="../images/x.svg" alt="" class="w-5 h-5 "></button>
                         </div>
                     </div>
-                </div>
+                    </form>
+                    <?php }?>
                 <div class="w-[40%]">
                     <div class="bg-[#FA8F88] rounded-t-xl p-8 space-y-5">
                         <p class="text-5xl pb-3">Your Subtotal</p>
                         <div class="flex space-x-7">
-                            <p class="text-3xl">Subtotal</p>
-                            <p class="text-3xl">$80.00</p>
+                        <p id="total-carrito text-3xl">Total: <span id="total-precio" class="text-3xl">0</span></p>
                         </div>
                         <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="bg-black border-[1px] border-[black] font-light text-2xl text-white px-4 h-16 w-full hover:bg-white hover:text-black transition-all ease-in-out duration-300">Confirm Order</button>
                     </div>
-                    <div id="authentication-modal" aria-hidden="true" class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
-                        <div class="relative w-full max-w-md px-4 h-full md:h-auto">
+                    <div id="authentication-modal" aria-hidden="true" class="payWhole hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+                        <div class=" relative w-full max-w-md px-4 h-full md:h-auto">
                             <!-- Modal content -->
                             <div class="bg-white rounded-lg relative shadow-2xl">
                                 <div class="flex justify-end p-2">
@@ -66,31 +116,50 @@
                                     </div>
 
                                     <div>
-                                        <label for="email" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Card holder*</label>
-                                        <input type="email" name="email" id="email" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Nacely Orellana" required="">
+                                        <label for="cardowner" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Card holder*</label>
+                                        <input type="text" name="cardowner" id="cardowner" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Nacely Orellana" required="">
                                     </div>
                                     <div>
-                                        <label for="password" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Credit/debit card number*</label>
-                                        <input type="password" name="password" id="password" placeholder="4224 4224 4224 4224" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
+                                        <label for="cardnumber" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Credit/debit card number*</label>
+                                        <input type="number" name="cardnumber" id="cardnumber" placeholder="4224 4224 4224 4224" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
                                     </div>
                                     <div class="flex space-x-10">
                                         <div>
-                                            <label for="password" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Expiration*</label>
-                                            <input type="password" name="password" id="password" placeholder="04/25" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
+                                            <label for="cardExp" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Expiration*</label>
+                                            <input type="text" name="cardExp" id="cardExp" placeholder="04/25" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
                                         </div>
                                         <div>
-                                            <label for="password" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">CVC*</label>
-                                            <input type="password" name="password" id="password" placeholder="843" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
+                                            <label for="cvc" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">CVC*</label>
+                                            <input type="number" name="cvc" id="cvc" placeholder="843" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
                                         </div>
                                     </div>
                                     <div class="flex space-x-3 justify-end pt-7">
-                                        <button class="py-2 rounded-full px-4 border-[1px] border-gray-300 font-semibold hover:bg-black hover:text-white transition-all ease-in-out duration-300">Cancel</button>
-                                        <button class="py-2 bg-black text-white rounded-full px-8 border-[1px] border-gray-300 font-semibold hover:bg-white hover:text-black transition-all ease-in-out duration-300">Pay</button>
+                                        <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="py-2 rounded-full px-4 border-[1px] border-gray-300 font-semibold hover:bg-black hover:text-white transition-all ease-in-out duration-300">Cancel</button>
+                                        <button id="pay" type="button" data-modal-target="done-modal" data-modal-toggle="done-modal" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"  class="py-2 bg-black text-white rounded-full px-8 border-[1px] border-gray-300 font-semibold hover:bg-white hover:text-black transition-all ease-in-out duration-300">Pay</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div> 
+                    <div id="done-modal" aria-hidden="true" class=" hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+                        <div class="bg-white p-6  md:mx-auto shadow-2xl">
+                            <svg viewBox="0 0 24 24" class="text-green-600 w-16 h-16 mx-auto my-6">
+                            <path fill="currentColor"
+                                d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z">
+                            </path>
+                        </svg>
+                        <div class="text-center">
+                            <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">Payment Done!</h3>
+                            <p class="text-gray-600 my-2">Thank you for completing your secure online payment.</p>
+                            <p> Have a great day!  </p>
+                            <div class="cursor-pointer py-10 text-center">
+                                <a onclick="location.reload()" class=" px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
+                                    GO BACK 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                     <div class="flex flex-col border-[1px] border-[#FA8F88] rounded-b-xl p-8 space-y-7">
                         <p class="text-5xl">Promo Code</p>
                         <input type="text" placeholder="entre promo code" class="outline-none border-[1px] border-[#FA8F88] px-5 py-4 text-2xl font-light">
@@ -105,4 +174,13 @@
 
 <script src="../processes/js/carrito"></script>
 <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>
+<script>
+    let pay = document.getElementById('pay');
+    let payC = document.querySelector('.payWhole')
+
+    pay.addEventListener('click', () => {
+        payC.classList.add('hidden')
+    })
+</script>
+
 </html>
