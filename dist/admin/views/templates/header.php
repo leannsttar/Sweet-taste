@@ -11,8 +11,9 @@
     <div class="h-screen w-[13%] flex justify-center items-center">
         <div class="flex flex-col bg-black text-white pt-4 space-y-16 justify-center items-center rounded-3xl fixed">
             <div class="py-7 w-full flex justify-center"><img src="../images/lido_logo.png" alt="" class="w-32"></div>
-            <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/menu.svg" alt=""></div>
-            <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/historial.png" alt="" href="../views/historial_admin.html"></div>
-            <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center rounded-b-3xl"><img src="../images/signout.svg" alt=""></div>
+            <a href="./productos_admin.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/menu.svg" alt=""></div></a>
+            <a href="./historial_admin.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/historial.png" alt=""></div></a>
+            <a href="../../client/processes/close-session.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center rounded-b-3xl cursor-pointer"><img src="../images/signout.svg" alt=""></div>
+                </div></a>
         </div>
     </div>

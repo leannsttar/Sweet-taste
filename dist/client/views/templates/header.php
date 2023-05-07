@@ -20,20 +20,19 @@ session_start();
         if (isset($_SESSION['usuario'])) { ?>
             <div class="flex flex-col bg-black text-white pt-4 justify-center items-center rounded-3xl fixed">
                 <div class="py-7 w-full flex justify-center"><img src="../images/lido_logo.png" alt="" class="w-32"></div>
-                <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/Home.svg" alt=""></div>
-                <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/menu.svg" alt=""></div>
-                <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/cartt.svg" alt=""></div>
-                <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/historial.png" alt=""></div>
-                <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center rounded-b-3xl"><img src="../images/signout.svg" alt=""></div>
-            </div>
+                <a href="./index.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/Home.svg" alt=""></div></a>
+                <a href="./productos.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/menu.svg" alt=""></div></a>
+                <a href="./carrito.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/cartt.svg" alt=""></div></a>
+                <a href="./historial.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] rounded-b-3xl py-11 w-full flex justify-center"><img src="../images/historial.png" alt=""></div></a>
+                <a href="../../processes/close-session.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center rounded-b-3xl cursor-pointer"><img src="../images/signout.svg" alt=""></div>
+                </div></a>
         <?php } else { ?>
             <div class="flex flex-col bg-black text-white pt-4 justify-center items-center rounded-3xl fixed">
                 <div class="py-7 w-full flex justify-center"><img src="../images/lido_logo.png" alt="" class="w-32"></div>
-                <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/Home.svg" alt=""></div>
-                <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/menu.svg" alt=""></div>
-                <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/cartt.svg" alt=""></div>
-                <div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/historial.png" alt=""></div>
-
+                <a href="./index.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/Home.svg" alt=""></div></a>
+                <a href="./productos.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/menu.svg" alt=""></div></a>
+                <a href="./form-login.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/cartt.svg" alt=""></div></a>
+                <a href="./form-login.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] rounded-b-3xl py-11 w-full flex justify-center"><img src="../images/historial.png" alt=""></div></a>
             </div>
         <?php } ?>
     </div>
