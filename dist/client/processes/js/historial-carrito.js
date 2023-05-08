@@ -67,22 +67,22 @@
 
 // // //Guardar datos
 
-// // var carrito = [];
+// var carrito = [];
 
-// // function agregarAlCarrito(nombre, precio, descripcion) {
-// //     var producto = {
-// //         nombre: nombre,
-// //         precio: precio,
-// //         descripcion: descripcion
-// //     };
-// //     carrito.push(producto);
-// //     actualizarCarrito();
-// //     guardarCarritoEnLocalStorage();
-// // }
+// function agregarAlCarrito(nombre, precio, descripcion) {
+//     var producto = {
+//         nombre: nombre,
+//         precio: precio,
+//         descripcion: descripcion
+//     };
+//     carrito.push(producto);
+//     actualizarCarrito();
+//     guardarCarritoEnLocalStorage();
+// }
 
-// // function guardarCarritoEnLocalStorage() {
-// //     localStorage.setItem("carrito", JSON.stringify(carrito));
-// // }
+// function guardarCarritoEnLocalStorage() {
+//     localStorage.setItem("carrito", JSON.stringify(carrito));
+// }
 
 
 
