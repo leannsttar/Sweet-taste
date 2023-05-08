@@ -90,7 +90,7 @@ if ($resultado->num_rows > 0) {
             <div class="flex flex-row flex-wrap gap-10"> 
                 <?php  foreach ($misProductos as $producto) { ?>
                         
-                <form method="POST" action="<?= noLogged(); ?>" class="p-3 border-[1px] shadow-xl rounded-xl w-64">
+                <form method="POST" action="<?= noLogged(); ?>" class="p-3 border-[1px] flex-col shadow-xl rounded-xl w-64 justify-between">
                     <img src="../images/chef.png" alt="" class="rounded-xl">
                     <div class="my-5 px-4">
                         <p class="text-[#282424] text-2xl font-bold"><?php echo $producto['nombre'];  ?></p>

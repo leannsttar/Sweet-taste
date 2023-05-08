@@ -69,8 +69,8 @@ $_SESSION['productos'] = $misProductos;
                         </a>
                 <?php } ?>
             </div>
-            <div class="flex space-x-20">
-                <div class="w-[60%]" id="lista-carrito">
+            <div class="flex space-x-20 ">
+                <div class="w-[60%] space-y-5" id="lista-carrito">
                     <?php  foreach($misProductos as $producto){?>
                         <form method="POST" action="../processes/eliminar-carrito.php" class="flex bg-[#FA8F88] p-6 rounded-xl w-full">
                     <img src="../images/chococake.png" alt="" class="rounded-full w-20 h-20 object-cover mr-8">
@@ -85,7 +85,12 @@ $_SESSION['productos'] = $misProductos;
                     </div>
                     </form>
                     <?php }?>
-                <div class="w-[40%]" >
+                
+            </div>
+            <div class="w-[40%]" >
+                <div class="fixed">
+
+                
                     <div class="bg-[#FA8F88] rounded-t-xl p-8 space-y-5">
                         <p class="text-5xl pb-3">Total</p>
                         <div class="flex space-x-7">
@@ -176,7 +181,6 @@ $_SESSION['productos'] = $misProductos;
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </body>
