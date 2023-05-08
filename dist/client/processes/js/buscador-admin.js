@@ -9,6 +9,7 @@ function filtrarProductos() {
         var nombreProducto = productos[i].textContent.trim();
         if (nombreProducto.toLowerCase().includes(textoBusqueda)) {
             productos[i].style.display = "block";
+            
         } else {
             productos[i].style.display = "none";
         }
