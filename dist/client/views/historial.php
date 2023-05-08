@@ -45,7 +45,7 @@
                 <?php } ?>
             </div>
             <?php } else { ?>
-            <p>No hay nada</p>
+            <p>No hay productos añadidos en el carrito</p>
             <?php } ?>
         </div>
     </div>
