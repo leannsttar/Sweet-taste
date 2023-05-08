@@ -9,6 +9,17 @@ function salidaBtn()
     }
     return "";
 }
+
+function noLogged()
+{
+    if (isset($_SESSION["usuario"])) {
+        return "../processes/enviar-carrito.php";
+    }else{
+        return "./form-login.php";
+    }
+    
+}
+
 ?>
 
 <?php
@@ -40,11 +51,6 @@ if ($resultado->num_rows > 0) {
     echo "No se encontraron resultados";
 }
 
-// print_r($misProductos);
-
-// Cerrar la conexión
-$conn->close();
-
 
 ?>
     <div class="h-screen w-[87%] flex flex-col">
@@ -62,7 +68,7 @@ $conn->close();
             <div class="flex flex-row flex-wrap gap-10"> 
                 <?php  foreach ($misProductos as $producto) { ?>
                         
-                <form method="POST" action="../processes/enviar-carrito.php" class="p-3 border-[1px] shadow-xl rounded-xl w-64">
+                <form method="POST" action="<?= noLogged(); ?>" class="p-3 border-[1px] shadow-xl rounded-xl w-64">
                     <img src="../images/chef.png" alt="" class="rounded-xl">
                     <div class="my-5 px-4">
                         <p class="text-[#282424] text-2xl font-bold"><?php echo $producto['nombre'];  ?></p>
@@ -79,5 +85,4 @@ $conn->close();
 </body>
 
 <script src="../processes/js/buscador.js"></script>
-<script src="../processes/js/carrito.js"></script>
 </html>

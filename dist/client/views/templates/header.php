@@ -28,7 +28,7 @@
                 <div class="py-7 w-full flex justify-center"><img src="../images/lido_logo.png" alt="" class="w-32"></div>
                 <a href="./index.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/Home.svg" alt=""></div></a>
                 <a href="./productos.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/menu.svg" alt=""></div></a>
-                <a href="./carrito.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/cartt.svg" alt=""></div></a>
+                <a href="./form-login.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/cartt.svg" alt=""></div></a>
                 <a href="./form-login.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] rounded-b-3xl py-11 w-full flex justify-center"><img src="../images/historial.png" alt=""></div></a>
             </div>
         <?php } ?>

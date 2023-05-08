@@ -13,8 +13,6 @@ if ($conn->connect_error) {
     die("La conexión ha fallado: " . $conn->connect_error);
 }
 
-print_r($_POST);
-
 
 //cantidad, precio, nombre
 $idProducto = $_POST['Id'];

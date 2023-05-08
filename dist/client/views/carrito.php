@@ -29,11 +29,6 @@ if ($resultado->num_rows > 0) {
 }
 
 
-function retornarNombreUsuario() {
-  if (isset($_SESSION['usuario'])) {
-    return $_SESSION['nombre'];
-  }
-}
 
 $_SESSION['productos'] = $misProductos;
 // print_r($misProductos);
@@ -51,7 +46,7 @@ include ("./templates/header.php")
             <div class="flex justify-between w-full">
                 <p class="text-5xl border-b-[5px] border-b-[#FA8F88] pb-2">CARRITO</p>
                 <div class="flex items-center space-x-3">
-                    <p class="text-2xl"><?= retornarNombreUsuario(); ?></p>
+                    <p class="text-2xl">Rodrigo Pineda***</p>
                     <img src="../images/user.svg" alt="">
                 </div>
             </div>
