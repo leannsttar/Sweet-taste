@@ -20,6 +20,10 @@
   /* 2 */
 }
 
+.desaparecer{
+  display: none;
+}
+
 ::before,
 ::after {
   --tw-content: '';

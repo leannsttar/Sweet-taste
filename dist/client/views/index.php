@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+function salidaBtn()
+{
+    if (isset($_SESSION["usuario"])) {
+        return "desaparecer";
+    }
+    return "";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,7 +56,7 @@
         
       <div class="w-screen h-screen flex overflow-hidden">
             <img src="../images/lido_logo.png" alt="" class="absolute w-48 h-24 m-3">
-            <a href="./form-login.php"> <button class="bg-white absolute right-14 top-10 pt-1.5 pb-1.5 pl-4 pr-4 font-semibold rounded-md text-lg hover:bg-black hover:text-white transition-all ease-in-out duration-300">Iniciar sesión</button>
+            <a href="./form-login.php"> <button class="bg-white absolute right-14 top-10 pt-1.5 pb-1.5 pl-4 pr-4 font-semibold rounded-md text-lg hover:bg-black hover:text-white transition-all ease-in-out duration-300 button <?= salidaBtn(); ?>">Iniciar sesión</button>
             </a>
             <div class="h-screen w-screen bg-index1 bg-cover flex justify-center items-center">
                 <div class="absolute flex flex-col items-center space-y-12 mt-10">
