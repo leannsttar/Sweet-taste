@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 07-05-2023 a las 20:56:45
+-- Tiempo de generación: 08-05-2023 a las 02:15:27
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.1.10
 
@@ -41,20 +41,60 @@ CREATE TABLE `carrito` (
 
 CREATE TABLE `historial` (
   `id_historial` int NOT NULL,
-  `fecha` int NOT NULL
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `historial`
+--
+
+INSERT INTO `historial` (`id_historial`, `fecha`) VALUES
+(1, '2023-05-07'),
+(2, '2023-05-07'),
+(3, '2023-05-07'),
+(4, '2023-05-07'),
+(5, '2023-05-07'),
+(6, '2023-05-07'),
+(7, '2023-05-07'),
+(8, '2023-05-07'),
+(9, '2023-05-07'),
+(10, '2023-05-07'),
+(11, '2023-05-07'),
+(12, '2023-05-07'),
+(13, '2023-05-07'),
+(14, '2023-05-07'),
+(15, '2023-05-07'),
+(16, '2023-05-07'),
+(17, '2023-05-07');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `historial producto`
+-- Estructura de tabla para la tabla `historial_producto`
 --
 
-CREATE TABLE `historial producto` (
+CREATE TABLE `historial_producto` (
   `id` int NOT NULL,
   `id_historial` int NOT NULL,
-  `id_ producto` int NOT NULL
+  `id_producto` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `historial_producto`
+--
+
+INSERT INTO `historial_producto` (`id`, `id_historial`, `id_producto`) VALUES
+(1, 12, 1),
+(2, 12, 1),
+(3, 12, 1),
+(4, 12, 1),
+(5, 12, 1),
+(6, 12, 1),
+(7, 13, 1),
+(8, 14, 1),
+(9, 15, 1),
+(10, 16, 1),
+(11, 17, 1);
 
 -- --------------------------------------------------------
 
@@ -118,10 +158,12 @@ ALTER TABLE `historial`
   ADD PRIMARY KEY (`id_historial`);
 
 --
--- Indices de la tabla `historial producto`
+-- Indices de la tabla `historial_producto`
 --
-ALTER TABLE `historial producto`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `historial_producto`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `historial` (`id_producto`),
+  ADD KEY `historial2` (`id_historial`);
 
 --
 -- Indices de la tabla `products`
@@ -143,19 +185,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_carrito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_carrito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_historial` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT de la tabla `historial producto`
+-- AUTO_INCREMENT de la tabla `historial_producto`
 --
-ALTER TABLE `historial producto`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `historial_producto`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
@@ -178,6 +220,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `carrito`
   ADD CONSTRAINT `id` FOREIGN KEY (`id_producto`) REFERENCES `products` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `historial_producto`
+--
+ALTER TABLE `historial_producto`
+  ADD CONSTRAINT `historial` FOREIGN KEY (`id_producto`) REFERENCES `products` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `historial2` FOREIGN KEY (`id_historial`) REFERENCES `historial` (`id_historial`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
