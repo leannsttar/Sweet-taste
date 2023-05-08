@@ -46,7 +46,7 @@ include ("./templates/header.php")
             <div class="flex justify-between w-full">
                 <p class="text-5xl border-b-[5px] border-b-[#FA8F88] pb-2">CARRITO</p>
                 <div class="flex items-center space-x-3">
-                    <p class="text-2xl">Rodrigo Pineda***</p>
+                    <p class="text-2xl">Rodrigo Pine</p>
                     <img src="../images/user.svg" alt="">
                 </div>
             </div>
