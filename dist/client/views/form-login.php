@@ -20,6 +20,7 @@
         </div>
         <div class="w-2/5 h-screen flex flex-col justify-center pl-28 pr-28">
             <div class="mb-7"><a href="./index.php"><img src="../images/lido_logo.png" alt="" class="w-36 h-18 -translate-x-4"></a></div>
+            <!-- <div class="mb-7"><img src="../images/backkk.svg" alt="" class="w-36 h-18 -translate-x-4"></div> -->
             <div class="text-3xl font-bold">Inicia sesión</div>
             <form action="../processes/login.php" method="POST">
                 <div class="flex flex-col space-y-8">
