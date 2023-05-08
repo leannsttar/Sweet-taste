@@ -8,9 +8,9 @@ function filtrarProductos() {
     for (var i = 0; i < productos.length; i++) {
         var nombreProducto = productos[i].textContent.trim();
         if (nombreProducto.toLowerCase().includes(textoBusqueda)) {
-            productos[i].style.display = "block";
+            productos[i].parentElement.parentElement.style.display = "flex";
         } else {
-            productos[i].style.display = "none";
+            productos[i].parentElement.parentElement.style.display = "none";
         }
     }
 }

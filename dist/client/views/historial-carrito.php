@@ -21,7 +21,7 @@ if ($conn->connect_error) {
             $misProductos[] = $fila;
         }
     } else {
-        echo "No se encontraron productos en el carrito";    
+        echo "";    
 
 }
 

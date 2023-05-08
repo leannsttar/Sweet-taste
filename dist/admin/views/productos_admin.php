@@ -19,26 +19,6 @@ include "../processes/UpdateItem.php";
 include "./templates/header.php"
 ?>
 
-<script>
-var inputBusqueda = document.getElementById("search");
-
-inputBusqueda.addEventListener("input", filtrarProductos);
-
-function filtrarProductos() {
-    var textoBusqueda = inputBusqueda.value.toLowerCase();
-    var productos = document.getElementsByClassName("p-3");
-    for (var i = 0; i < productos.length; i++) {
-    var producto = productos[i];
-    var titulo = producto.getElementsByTagName("p")[0].textContent.toLowerCase();
-    if (titulo.includes(textoBusqueda)) {
-        producto.style.display = "block";
-      } else {
-        producto.style.display = "none";
-      }
-    }
-  }
-</script>
-
 
     <div class="h-screen w-[87%] flex flex-col">
         <div class="w-[95%] flex flex-col mt-[55px]">
@@ -84,11 +64,11 @@ function filtrarProductos() {
                         </div>
                     </div>
                 </div> 
-                <div class="space-y-10">
+                <div class="koko space-y-10">
                     <?php foreach ($allproducts as $product) { ?>
                     <div class="flex items-center justify-between border-b-4 pb-4">
 
-                        <div class="flex items-center justify-start gap-x-16 w-full">
+                        <div class="p-3 flex items-center justify-start gap-x-16 w-full">
                             <p class="text-3xl font-bold"><?php echo $product['Id'] ?></p>
                             <img src="../../client/images/chococake.png" alt="" class="w-20 h-20 object-cover">
                             <p class="p-3 text-3xl font-bold mr-52 w-52"><?php echo $product['nombre'] ?></p>

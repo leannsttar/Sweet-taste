@@ -8,7 +8,7 @@
 
 // function agregarAlCarrito(nombre, precio) {
 //     var producto = {
-//         nombre: nombre,
+//         nombre: nombre,  
 //         precio: precio,
 //         cantidad: 1
 //     };
