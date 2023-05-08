@@ -19,6 +19,27 @@ include "../processes/UpdateItem.php";
 include "./templates/header.php"
 ?>
 
+<script>
+var inputBusqueda = document.getElementById("search");
+
+inputBusqueda.addEventListener("input", filtrarProductos);
+
+function filtrarProductos() {
+    var textoBusqueda = inputBusqueda.value.toLowerCase();
+    var productos = document.getElementsByClassName("p-3");
+    for (var i = 0; i < productos.length; i++) {
+    var producto = productos[i];
+    var titulo = producto.getElementsByTagName("p")[0].textContent.toLowerCase();
+    if (titulo.includes(textoBusqueda)) {
+        producto.style.display = "block";
+      } else {
+        producto.style.display = "none";
+      }
+    }
+  }
+</script>
+
+
     <div class="h-screen w-[87%] flex flex-col">
         <div class="w-[95%] flex flex-col mt-[55px]">
             <div class="flex justify-between w-full">
@@ -30,7 +51,7 @@ include "./templates/header.php"
             </div>
             <div class="flex w-full my-14 items-center">
                 <div class="">
-                    <input type="text" id="search" placeholder="Buscar" class="bg-[#e9e8e8] w-96 rounded-lg outline-none px-3 py-1">
+                <input type="text" id="search" placeholder="Buscar" class="bg-[#e9e8e8] w-96 rounded-lg outline-none px-3 py-1">
                 </div>
             </div>
             <div>
@@ -70,7 +91,7 @@ include "./templates/header.php"
                         <div class="flex items-center justify-start gap-x-16 w-full">
                             <p class="text-3xl font-bold"><?php echo $product['Id'] ?></p>
                             <img src="../../client/images/chococake.png" alt="" class="w-20 h-20 object-cover">
-                            <p class="text-3xl font-bold mr-52 w-52"><?php echo $product['nombre'] ?></p>
+                            <p class="p-3 text-3xl font-bold mr-52 w-52"><?php echo $product['nombre'] ?></p>
                             <div>
                                 <p class="text-3xl text-[#fdb3ad] font-bold">D: <?php echo $product['descripcion'] ?></p>
                                 <p class="text-3xl text-[#666666] font-bold">$<?php echo $product['precio'] ?></p>
@@ -141,6 +162,7 @@ include "./templates/header.php"
             </div>
         </div>
     </div>
+    <script src="../../client/processes/js/buscador-admin.js"></script>
     <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>
     <script>
     </script>
