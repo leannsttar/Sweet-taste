@@ -12,7 +12,7 @@ class BD {
             $opciones[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
             //Crea una nueva instancia de la clase PDO para conectarse a una base de datos MySQL
             
-            self::$instancia = new PDO('mysql:host=localhost;dbname=sweet_taste', 'leannsttar', 'leannsttarmysql1@', $opciones);
+            self::$instancia = new PDO('mysql:host=localhost;dbname=sweet_taste', 'root', '', $opciones);
             // echo "conectado";
         }
         return self::$instancia;
