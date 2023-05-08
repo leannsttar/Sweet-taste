@@ -36,7 +36,9 @@ if ($resultado->num_rows > 0) {
 } else {
     // echo "No se encontraron resultados";
 }
+session_start();
 
+$_SESSION['productos'] = $misProductos;
 // print_r($misProductos);
 
 // Cerrar la conexión
@@ -82,11 +84,12 @@ $conn->close();
                     <?php }?>
                 <div class="w-[40%]">
                     <div class="bg-[#FA8F88] rounded-t-xl p-8 space-y-5">
-                        <p class="text-5xl pb-3">Your Subtotal</p>
+                        <p class="text-5xl pb-3">Total</p>
                         <div class="flex space-x-7">
-                        <p id="total-carrito text-3xl">Total: <span id="total-precio" class="text-3xl">0</span></p>
                         </div>
-                        <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="bg-black border-[1px] border-[black] font-light text-2xl text-white px-4 h-16 w-full hover:bg-white hover:text-black transition-all ease-in-out duration-300">Confirm Order</button>
+                        <form action="../processes/crear-historial.php" method="post">
+                        <button type="submit" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="bg-black border-[1px] border-[black] font-light text-2xl text-white px-4 h-16 w-full hover:bg-white hover:text-black transition-all ease-in-out duration-300">Confirmar orden</button>
+                        </form>
                     </div>
                     <div id="authentication-modal" aria-hidden="true" class="payWhole hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
                         <div class=" relative w-full max-w-md px-4 h-full md:h-auto">
@@ -116,26 +119,29 @@ $conn->close();
                                     </div>
 
                                     <div>
-                                        <label for="cardowner" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Card holder*</label>
+                                        <label for="cardowner" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Titular de la tarjeta</label>
                                         <input type="text" name="cardowner" id="cardowner" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Nacely Orellana" required="">
                                     </div>
                                     <div>
-                                        <label for="cardnumber" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Credit/debit card number*</label>
+                                        <label for="cardnumber" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Número de tarjeta de crédito/débito</label>
                                         <input type="number" name="cardnumber" id="cardnumber" placeholder="4224 4224 4224 4224" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
                                     </div>
                                     <div class="flex space-x-10">
                                         <div>
-                                            <label for="cardExp" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Expiration*</label>
+                                            <label for="cardExp" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Fecha de vencimiento</label>
                                             <input type="text" name="cardExp" id="cardExp" placeholder="04/25" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
                                         </div>
                                         <div>
-                                            <label for="cvc" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">CVC*</label>
+                                            <label for="cvc" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Código de seguridad</label>
                                             <input type="number" name="cvc" id="cvc" placeholder="843" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required="">
                                         </div>
                                     </div>
                                     <div class="flex space-x-3 justify-end pt-7">
-                                        <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="py-2 rounded-full px-4 border-[1px] border-gray-300 font-semibold hover:bg-black hover:text-white transition-all ease-in-out duration-300">Cancel</button>
-                                        <button id="pay" type="button" data-modal-target="done-modal" data-modal-toggle="done-modal" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"  class="py-2 bg-black text-white rounded-full px-8 border-[1px] border-gray-300 font-semibold hover:bg-white hover:text-black transition-all ease-in-out duration-300">Pay</button>
+                                        <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="py-2 rounded-full px-4 border-[1px] border-gray-300 font-semibold hover:bg-black hover:text-white transition-all ease-in-out duration-300">Cancelar</button>
+                                        <form action="../processes/crear-historial.php" method="post">
+                                            <input type="hidden" name="id_producto" value="<?php echo $id_producto ?>">
+                                            <button type="submit" id="pay" data-modal-target="done-modal" data-modal-toggle="done-modal" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"  class="py-2 bg-black text-white rounded-full px-8 border-[1px] border-gray-300 font-semibold hover:bg-white hover:text-black transition-all ease-in-out duration-300">Pagar</button>
+                                        </form>
                                     </div>
                                 </form>
                             </div>
@@ -149,21 +155,21 @@ $conn->close();
                             </path>
                         </svg>
                         <div class="text-center">
-                            <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">Payment Done!</h3>
-                            <p class="text-gray-600 my-2">Thank you for completing your secure online payment.</p>
-                            <p> Have a great day!  </p>
+                            <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">Pago hecho</h3>
+                            <p class="text-gray-600 my-2">Gracias por tu preferencia</p>
+                            <p> Ten un buen día.  </p>
                             <div class="cursor-pointer py-10 text-center">
                                 <a onclick="location.reload()" class=" px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
-                                    GO BACK 
+                                    Vuelve pronto 
                                 </a>
                             </div>
                         </div>
                     </div>
                     </div>
                     <div class="flex flex-col border-[1px] border-[#FA8F88] rounded-b-xl p-8 space-y-7">
-                        <p class="text-5xl">Promo Code</p>
-                        <input type="text" placeholder="entre promo code" class="outline-none border-[1px] border-[#FA8F88] px-5 py-4 text-2xl font-light">
-                        <button class="bg-black border-[1px] border-[black] font-light text-2xl text-white px-8 h-14 w-min hover:bg-white hover:text-black transition-all ease-in-out duration-300">Apply</button>
+                        <p class="text-5xl">Código de promoción</p>
+                        <input type="text" placeholder="Ingresar código" class="outline-none border-[1px] border-[#FA8F88] px-5 py-4 text-2xl font-light">
+                        <button class="bg-black border-[1px] border-[black] font-light text-2xl text-white px-8 h-14 w-min hover:bg-white hover:text-black transition-all ease-in-out duration-300">Aplicar</button>
                     </div>
                 </div>
             </div>
@@ -172,8 +178,7 @@ $conn->close();
     </div>
 </body>
 
-<script src="../processes/js/carrito"></script>
-<script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script>
+<!-- <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js"></script> -->
 <script>
     let pay = document.getElementById('pay');
     let payC = document.querySelector('.payWhole')

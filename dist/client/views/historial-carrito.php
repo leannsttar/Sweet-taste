@@ -6,21 +6,23 @@ $username = "root";
 $password = "";
 $dbname = "sweet_taste";
 
-// Crear la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verificar la conexión
 if ($conn->connect_error) {
     die("La conexión ha fallado: " . $conn->connect_error);
 }
+    $sql = "SELECT * FROM historial_producto INNER JOIN products ON historial_producto.id_producto = products.id";
+    $resultado = $conn->query($sql);
+    $misProductos = [];
 
-$sql = "SELECT * FROM carrito INNER JOIN products ON carrito.id_producto=products.id";
-$resultado = $conn->query($sql);
-$misProductos = [];
 
+    if ($resultado && $resultado->num_rows > 0) {
+        while ($fila = $resultado->fetch_assoc()) {
+            $misProductos[] = $fila;
+        }
+    } else {
+        echo "No se encontraron productos en el carrito";    
 
-// Cerrar la conexión
-$conn->close();
-
+}
 
 ?>
