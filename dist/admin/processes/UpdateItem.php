@@ -1,19 +1,27 @@
-<?
-include "../../config/db.php";
-$conexionBD = BD::crearInstancia();
+<?php
 
-$IDproducto = intval($_GET['ID']);
-$miProducto = mysqli_query($conexionBD, "Select * from products where IDproducto = $IDproducto");
-$miProducto = mysqli_fetch_assoc($miProducto);
-$productos = mysqli_fetch_all($productos);
-if ($_SERVER["REQUEST_METHOD"]=="POST") {
+$accion = isset($_POST['accion']) ? $_POST['accion'] : '';
+
+if ($accion == 'actualizar') { 
+  $id = $_POST['Id'];
   $nombre = $_POST["nombre"];
-  $Precio = $_POST["Precio"];
-  $categoria = intval($_POST["categoria"]);
-  $sql = "Update products set Nombre = '$nombre', Precio = $Precio, IDcategoria = $categoria where IDproducto = $IDproducto";
-  mysqli_query($conexionBD, $sql);
-  echo "<script>alert('Producto editado!');  window.location.href = '../../admin/views/productos_admin.php' </script>";
- 
-}
+  $descripcion = $_POST["descripcion"];
+  $precio = $_POST["precio"];
+
+  // include "../../config/db.php";
+  // $conexionBD = BD::crearInstancia();
+
+
+  $sql = "UPDATE products SET nombre=:nombre, descripcion=:descripcion, precio=:precio WHERE Id = :id";
+  $consulta = $conexionBD->prepare($sql);
+  $consulta->bindParam(':id', $id);
+  $consulta->bindParam(':nombre', $nombre);
+  $consulta->bindParam(':descripcion', $descripcion);
+  $consulta->bindParam(':precio', $precio);
+  $consulta->execute();
+  echo "<script>alert('Producto actualizado!');  window.location.href = '../../admin/views/productos_admin.php' </script>";
+} 
+
+
 
 ?>

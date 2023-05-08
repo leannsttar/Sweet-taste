@@ -1,20 +1,29 @@
 <?php
+
+
 include "../../config/db.php";
 $conexionBD = BD::crearInstancia();
 
-$productos = mysqli_query($conexionBD, "Select * from categorias");
-$productos = mysqli_fetch_all($productos);
-if ($_SERVER["REQUEST_METHOD"]=="POST") {
+$accion = isset($_POST['accion']) ? $_POST['accion'] : '';
+
+if ($accion == 'agregar') {
   $nombre = $_POST["nombre"];
   $descripcion = $_POST["descripcion"];
-  $img = $_POST["imagen"];
-  $Precio = $_POST["Precio"];
-  $Cantidad = $_POST["cantidad"];
-  $categoria = intval($_POST["categoria"]);
-  $sql = "Insert into products (nombre, descripcion, imagen, Cantidad, Precio, IDcategoria) VALUES ('$nombre', '$Descripcion', $Cantidad, $Precio, $categoria)";
+  $precio = $_POST["precio"];
 
-  mysqli_query($conexionBD, $sql);
+  $sql = "INSERT INTO products (nombre, descripcion, precio) VALUES (:nombre, :descripcion, :precio)";
+  $consulta = $conexionBD->prepare($sql);
+  $consulta->bindParam(':nombre', $nombre);
+  $consulta->bindParam(':descripcion', $descripcion);
+  $consulta->bindParam(':precio', $precio);
+  $consulta->execute();
   echo "<script>alert('Producto agregado!');  window.location.href = '../../admin/views/productos_admin.php' </script>";
  
 }
+
+$sql = "SELECT * FROM `products`";
+$productos = $conexionBD->query($sql);
+$allproducts = $productos->fetchAll();
+
+
 ?>
