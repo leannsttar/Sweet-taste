@@ -77,7 +77,7 @@ function filtrarProductos() {
                                 </div>
                                 <div>
                                     <label for="precio" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Precio</label>
-                                    <input type="number" name="precio" id="precio" min="0.01" max="100" step="0.01" placeholder="$20.00" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                    <input type="text" name="precio" id="precio" placeholder="$20.00" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
                                 </div>
                                 <button name="accion" value="agregar" type="submit" class="w-full text-white bg-[#FA8F88] hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#FA8F88] dark:hover:bg-[#FF5146] dark:focus:ring-blue-800">Agregar producto</button>
                             </form>
@@ -120,7 +120,7 @@ function filtrarProductos() {
                                         </div>
                                         <div>
                                             <label for="precio" class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Precio</label>
-                                            <input type="number" name="precio" id="precio" min="0.01" max="100" step="0.01" value="<?=$product['precio'] ?>" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                                            <input type="text" name="precio" id="precio" value="<?=$product['precio'] ?>" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-800 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
                                         </div>
                                         <input type="hidden" value="<?php echo $product['Id']?>" name="Id">
                                         <button type="submit" name="accion" value="actualizar" class="w-full text-white bg-red-200 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Editar producto</button>

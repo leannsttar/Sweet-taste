@@ -711,6 +711,10 @@ video {
   margin-top: 55px;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -858,6 +862,14 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-40 {
+  width: 10rem;
+}
+
+.w-44 {
+  width: 11rem;
 }
 
 .max-w-md {
@@ -1472,11 +1484,6 @@ video {
 .text-\[\#666666\] {
   --tw-text-opacity: 1;
   color: rgb(102 102 102 / var(--tw-text-opacity));
-}
-
-.text-\[\#fdb3ad\] {
-  --tw-text-opacity: 1;
-  color: rgb(253 179 173 / var(--tw-text-opacity));
 }
 
 .text-gray-400 {

@@ -60,8 +60,8 @@ function salidaBtn()
             <!-- <a href="./form-login.php"> <button class="bg-white absolute right-14 top-10 pt-1.5 pb-1.5 pl-4 pr-4 font-semibold rounded-md text-lg hover:bg-black hover:text-white transition-all ease-in-out duration-300 button <?= salidaBtn(); ?>">Iniciar sesión</button>
             </a> -->
             <?php if(isset($_SESSION['usuario'])) { ?>
-                <div class="flex items-center space-x-3 absolute right-14 top-10">
-                        <p class="text-2xl text-white">
+                <div class="flex items-center space-x-3 absolute right-14 top-10 invert">
+                        <p class="text-2xl">
 
                             <?php include '../../config/db.php';
                             $conexionBD = BD::crearInstancia();
@@ -76,7 +76,7 @@ function salidaBtn()
 
                             ?>
                         </p>
-                    <img src="../images/user.svg" alt="" class="invert">
+                    <img src="../images/user.svg" alt="" class="">
                 </div>
                 <?php } else {  ?>
                         <a href="./form-login.php"> <button class="bg-white absolute right-14 top-10 pt-1.5 pb-1.5 pl-4 pr-4 font-semibold rounded-md text-lg hover:bg-black hover:text-white transition-all ease-in-out duration-300 button <?= salidaBtn(); ?>">Iniciar sesión</button>
