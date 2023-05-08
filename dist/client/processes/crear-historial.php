@@ -21,7 +21,6 @@ $conn->query("INSERT INTO historial (fecha) VALUES (NOW())");
 
 $idHistorial = $conn->insert_id;
 
-echo $idHistorial;
 
 foreach($_SESSION['productos'] as $producto){
     $idProducto = $producto['id_producto'];
@@ -31,7 +30,7 @@ foreach($_SESSION['productos'] as $producto){
 
 
 $conn->query("DELETE FROM carrito");
-session_destroy();
+// session_destroy();
 
 header('Location: ../views/productos.php');
 

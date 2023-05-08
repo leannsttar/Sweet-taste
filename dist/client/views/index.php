@@ -57,8 +57,31 @@ function salidaBtn()
         
       <div class="w-screen h-screen flex overflow-hidden">
             <img src="../images/lido_logo.png" alt="" class="absolute w-48 h-24 m-3">
-            <a href="./form-login.php"> <button class="bg-white absolute right-14 top-10 pt-1.5 pb-1.5 pl-4 pr-4 font-semibold rounded-md text-lg hover:bg-black hover:text-white transition-all ease-in-out duration-300 button <?= salidaBtn(); ?>">Iniciar sesión</button>
-            </a>
+            <!-- <a href="./form-login.php"> <button class="bg-white absolute right-14 top-10 pt-1.5 pb-1.5 pl-4 pr-4 font-semibold rounded-md text-lg hover:bg-black hover:text-white transition-all ease-in-out duration-300 button <?= salidaBtn(); ?>">Iniciar sesión</button>
+            </a> -->
+            <?php if(isset($_SESSION['usuario'])) { ?>
+                <div class="flex items-center space-x-3 absolute right-14 top-10">
+                        <p class="text-2xl text-white">
+
+                            <?php include '../../config/db.php';
+                            $conexionBD = BD::crearInstancia();
+
+                            $id = $_SESSION['usuario'];
+
+                            $sql = "SELECT * FROM `users` WHERE id= $id ";
+                            $users = $conexionBD->query($sql);
+                            $allusers = $users->fetchAll();
+
+                            print_r($allusers[0]['nombre']);
+
+                            ?>
+                        </p>
+                    <img src="../images/user.svg" alt="" class="invert">
+                </div>
+                <?php } else {  ?>
+                        <a href="./form-login.php"> <button class="bg-white absolute right-14 top-10 pt-1.5 pb-1.5 pl-4 pr-4 font-semibold rounded-md text-lg hover:bg-black hover:text-white transition-all ease-in-out duration-300 button <?= salidaBtn(); ?>">Iniciar sesión</button>
+                        </a>
+                <?php } ?>
             <div class="h-screen w-screen bg-index1 bg-cover flex justify-center items-center">
                 <div class="absolute flex flex-col items-center space-y-12 mt-10">
                     <h2 class="text-white text-center text-7xl font-[400]">Bienvenido a Pan Lido</h2>

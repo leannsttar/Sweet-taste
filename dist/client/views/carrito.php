@@ -5,7 +5,6 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "sweet_taste";
-
 // Crear la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -29,8 +28,6 @@ if ($resultado->num_rows > 0) {
 }
 
 
-
-$_SESSION['productos'] = $misProductos;
 // print_r($misProductos);
 
 // Cerrar la conexión
@@ -39,16 +36,38 @@ $conn->close();
 
 ?>
 <?php
-include ("./templates/header.php")
+
+include ("./templates/header.php");
+$_SESSION['productos'] = $misProductos;
+
 ?>
     <div class="h-screen w-[87%] flex flex-col">
         <div class="w-[95%] flex flex-col mt-[55px] space-y-16">
             <div class="flex justify-between w-full">
                 <p class="text-5xl border-b-[5px] border-b-[#FA8F88] pb-2">CARRITO</p>
+                <?php if(isset($_SESSION['usuario'])) { ?>
                 <div class="flex items-center space-x-3">
-                    <p class="text-2xl">Rodrigo Pine</p>
+                        <p class="text-2xl">
+
+                            <?php include '../../config/db.php';
+                            $conexionBD = BD::crearInstancia();
+
+                            $id = $_SESSION['usuario'];
+
+                            $sql = "SELECT * FROM `users` WHERE id= $id ";
+                            $users = $conexionBD->query($sql);
+                            $allusers = $users->fetchAll();
+
+                            print_r($allusers[0]['nombre']);
+
+                            ?>
+                        </p>
                     <img src="../images/user.svg" alt="">
                 </div>
+                <?php } else {  ?>
+                        <a href="./form-login.php"> <button class="bg-white absolute right-14 top-10 pt-1.5 pb-1.5 pl-4 pr-4 font-semibold rounded-md text-lg hover:bg-black hover:text-white transition-all ease-in-out duration-300 button <?= salidaBtn(); ?>">Iniciar sesión</button>
+                        </a>
+                <?php } ?>
             </div>
             <div class="flex space-x-20">
                 <div class="w-[60%]" id="lista-carrito">
@@ -72,7 +91,7 @@ include ("./templates/header.php")
                         <div class="flex space-x-7">
                         </div>
                         <form action="../processes/crear-historial.php" method="post">
-                        <button type="submit" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="bg-black border-[1px] border-[black] font-light text-2xl text-white px-4 h-16 w-full hover:bg-white hover:text-black transition-all ease-in-out duration-300">Confirmar orden</button>
+                            <button type="submit" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="bg-black border-[1px] border-[black] font-light text-2xl text-white px-4 h-16 w-full hover:bg-white hover:text-black transition-all ease-in-out duration-300">Confirmar orden</button>
                         </form>
                     </div>
                     <div id="authentication-modal" aria-hidden="true" class="payWhole hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">

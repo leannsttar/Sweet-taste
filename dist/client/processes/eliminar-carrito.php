@@ -20,7 +20,7 @@ $resultado = $conn->query($sql);
 $misProductos = [];
 
 header('Location: ../views/carrito.php');
-$conn->close();
+// $conn->close();
 
 
 ?>

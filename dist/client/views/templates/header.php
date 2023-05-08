@@ -20,7 +20,7 @@
                 <a href="./index.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/Home.svg" alt=""></div></a>
                 <a href="./productos.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/menu.svg" alt=""></div></a>
                 <a href="./carrito.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/cartt.svg" alt=""></div></a>
-                <a href="./historial.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] rounded-b-3xl py-11 w-full flex justify-center"><img src="../images/historial.png" alt=""></div></a>
+                <a href="./historial.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/historial.png" alt=""></div></a>
                 <a href="../processes/close-session.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center rounded-b-3xl cursor-pointer"><img src="../images/signout.svg" alt=""></div>
                 </div></a>
         <?php } else { ?>

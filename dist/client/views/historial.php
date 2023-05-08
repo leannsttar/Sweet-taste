@@ -5,10 +5,29 @@
     <div class="w-[95%] flex flex-col mt-[55px] space-y-16">
         <div class="flex justify-between w-full">
             <p class="text-5xl border-b-[5px] border-b-[#FA8F88] pb-2">HISTORIAL</p>
-            <div class="flex items-center space-x-3">
-                <p class="text-2xl">Rodrigo Pineda</p>
-                <img src="../images/user.svg" alt="">
-            </div>
+            <?php if(isset($_SESSION['usuario'])) { ?>
+                <div class="flex items-center space-x-3">
+                        <p class="text-2xl">
+
+                            <?php include '../../config/db.php';
+                            $conexionBD = BD::crearInstancia();
+
+                            $id = $_SESSION['usuario'];
+
+                            $sql = "SELECT * FROM `users` WHERE id= $id ";
+                            $users = $conexionBD->query($sql);
+                            $allusers = $users->fetchAll();
+
+                            print_r($allusers[0]['nombre']);
+
+                            ?>
+                        </p>
+                    <img src="../images/user.svg" alt="">
+                </div>
+                <?php } else {  ?>
+                        <a href="./form-login.php"> <button class="bg-white absolute right-14 top-10 pt-1.5 pb-1.5 pl-4 pr-4 font-semibold rounded-md text-lg hover:bg-black hover:text-white transition-all ease-in-out duration-300 button <?= salidaBtn(); ?>">Iniciar sesión</button>
+                        </a>
+                <?php } ?>
         </div>
         <div>
             <?php if (!empty($misProductos)) { ?>

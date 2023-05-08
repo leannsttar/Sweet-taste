@@ -93,7 +93,6 @@ function filtrarProductos() {
                             <img src="../../client/images/chococake.png" alt="" class="w-20 h-20 object-cover">
                             <p class="p-3 text-3xl font-bold mr-52 w-52"><?php echo $product['nombre'] ?></p>
                             <div>
-                                <p class="text-3xl text-[#fdb3ad] font-bold">D: <?php echo $product['descripcion'] ?></p>
                                 <p class="text-3xl text-[#666666] font-bold">$<?php echo $product['precio'] ?></p>
                             </div>
                         </div>
