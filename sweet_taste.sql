@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 08-05-2023 a las 02:15:27
+-- Tiempo de generación: 08-05-2023 a las 05:10:13
 -- Versión del servidor: 8.0.30
 -- Versión de PHP: 8.1.10
 
@@ -65,7 +65,8 @@ INSERT INTO `historial` (`id_historial`, `fecha`) VALUES
 (14, '2023-05-07'),
 (15, '2023-05-07'),
 (16, '2023-05-07'),
-(17, '2023-05-07');
+(17, '2023-05-07'),
+(18, '2023-05-07');
 
 -- --------------------------------------------------------
 
@@ -79,23 +80,6 @@ CREATE TABLE `historial_producto` (
   `id_producto` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Volcado de datos para la tabla `historial_producto`
---
-
-INSERT INTO `historial_producto` (`id`, `id_historial`, `id_producto`) VALUES
-(1, 12, 1),
-(2, 12, 1),
-(3, 12, 1),
-(4, 12, 1),
-(5, 12, 1),
-(6, 12, 1),
-(7, 13, 1),
-(8, 14, 1),
-(9, 15, 1),
-(10, 16, 1),
-(11, 17, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -106,7 +90,7 @@ CREATE TABLE `products` (
   `Id` int NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `descripcion` text NOT NULL,
-  `precio` int NOT NULL
+  `precio` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -114,9 +98,22 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`Id`, `nombre`, `descripcion`, `precio`) VALUES
-(1, 'Pastel de chocolate ', 'Está rico', 11),
-(2, 'Pastel de fresa', 'Está rico también', 13),
-(3, 'Pastel de coco', 'Que feo', 6);
+(2, 'Galletas zoológicas', 'Una deliciosa opción de galletas temáticas para los amantes de los animales. Cada galleta tiene una forma diferente de animal, desde leones y jirafas hasta elefantes y monos, lo que las hace divertidas y entretenidas para comer.', '1.25$'),
+(3, 'Galletas cremosas', 'Estas galletas tienen una textura suave y cremosa en el interior, que se contrasta con una textura crujiente en el exterior, lo que las convierte en una experiencia única en cada bocado.', '1.00$'),
+(4, 'Torti trigo', 'Son crujientes y deliciosos snacks elaborados con harina de trigo de alta calidad. Estos snacks tienen una textura ligera y aireada que los hace perfectos para disfrutar en cualquier momento del día', '0.35$'),
+(5, 'Galletas vita', 'Estas galletas están elaboradas con ingredientes de alta calidad, como cereales integrales y semillas, que las convierten en una fuente de fibra y otros nutrientes esenciales.', '0.75$'),
+(6, 'Pan dulce Alemania', 'Este pan es dulce y especiado, con una textura densa y húmeda, similar a la de un pastel. Está elaborado con ingredientes como frutas secas, nueces, especias como canela.', '1.25$'),
+(7, 'Galletas suspiros', 'Las galletas suspiros son un dulce delicado y ligero, típico de la repostería francesa. Estas galletas se caracterizan por su textura crujiente en el exterior y suave y esponjosa en el interior, que se derrite en la boca como un suspiro. ', '0.75$'),
+(8, 'Galletas margarita\r\n\r\n', 'Estas galletas tienen una forma distintiva de flor con pétalos curvos, que se asemejan a los pétalos de una margarita. Están elaboradas con ingredientes simples, como harina, mantequilla, azúcar y huevos, y se pueden aromatizar con extracto de vainilla, limón o almendra para agregar sabor. ', '1.25$'),
+(9, 'Galletas saladas\r\n', 'Estas galletas tienen un sabor salado y crujiente, y son ideales para disfrutar como un snack salado entre comidas, para acompañar con queso o paté, o incluso como una base para canapés y bocadillos', '1.00$'),
+(10, 'Pan dulce sandino', 'Es un delicioso pan suave y esponjoso que se originó en América Latina. Esta masa dulce y aromática a menudo se elabora con ingredientes como harina, azúcar, leche, huevos, mantequilla y una variedad de especias, como canela y nuez moscada.', '1.75$'),
+(11, 'Pan dulce relámpago\r\n\r\n', 'El pan dulce relámpago es un pan dulce que se distingue por su forma alargada y ondulada, similar a un relámpago. Esta deliciosa masa dulce se elabora a menudo con ingredientes como harina, azúcar, leche, huevos, mantequilla y vainilla, que le dan un sabor dulce y suave.', '1.25$'),
+(12, 'Pan dulce María Luisa', 'El pan dulce María Luisa es un pan dulce de origen latinoamericano que se distingue por su forma redondeada y su textura suave y esponjosa. Esta deliciosa masa dulce a menudo se elabora con ingredientes como harina, azúcar, leche, huevos y mantequilla, que le dan un sabor dulce y cremoso.', '1.25$'),
+(13, 'Pan dulce dona rellena', 'El pan dulce dona rellena es un pan suave y esponjoso que se distingue por su forma redonda con un agujero en el centro, similar a una dona. Sin embargo, a diferencia de las donas tradicionales, el pan dulce dona rellena se rellena con una variedad de sabores, como crema pastelera, mermelada o dulce de leche.', '2.25$'),
+(14, 'Pan dulce buñuelo', 'El pan dulce buñuelo es un pan dulce típico de la cocina española y latinoamericana que se distingue por su textura crujiente y su forma esférica y achatada. Este pan dulce a menudo se elabora con ingredientes como harina, huevos, azúcar, mantequilla, levadura y anís, que le dan un sabor dulce y aromático.', '1.00$'),
+(15, 'Pan torreja\r\n\r\n', 'La pan torreja, también conocida como \"French toast\" en inglés, es un delicioso platillo de la cocina internacional que consiste en rebanadas de pan remojadas en una mezcla de huevos batidos, leche y azúcar, y luego se fríen en mantequilla hasta que estén doradas y crujientes por fuera.', '2.50$'),
+(16, 'Pan dulce semita de piña\r\n\r\n', 'La pan dulce semita de piña es un postre típico de la cocina salvadoreña y centroamericana. Esta deliciosa torta de pan dulce se elabora con una masa de pan suave, cubierta con piña caramelizada y azúcar. La masa de pan suele estar hecha de harina, levadura, huevos, leche y azúcar, mientras que la cubierta de piña se prepara con piña fresca, azúcar morena y canela. ', '1.25$'),
+(17, 'Galletas Madeleine\r\n\r\n', 'Las galletas Madeleine son un postre francés tradicional que consiste en pequeños pasteles en forma de concha, con una textura esponjosa y un sabor delicado. Estas galletas se elaboran con harina, azúcar, huevos y mantequilla, y su sabor se puede mejorar con ingredientes como vainilla, ralladura de limón o almendras. ', '3.00$');
 
 -- --------------------------------------------------------
 
@@ -185,13 +182,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_carrito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_carrito` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_historial` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `historial_producto`
@@ -203,7 +200,7 @@ ALTER TABLE `historial_producto`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

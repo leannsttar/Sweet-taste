@@ -1,9 +1,10 @@
 <?php
 
 session_start();
+
 session_destroy();
 
-header('../views/form-login.php');
+header('Location: ../views/index.php');
 
-
+exit;
 ?>
