@@ -19,7 +19,8 @@ function salidaBtn()
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../output.css" />
-    <title>Inicio</title>
+    <link rel="shortcut icon" href="../images/lido_logo.png" type="image/x-icon">
+    <title>LIDO - Yo de Lido no me olvido</title>
   </head>
   <body>
     <section>

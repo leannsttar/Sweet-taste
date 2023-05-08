@@ -51,7 +51,7 @@ $conn->close();
         <div class="w-[95%] flex flex-col mt-[55px]">
             <div class="flex justify-between w-full">
                 <p class="text-5xl border-b-[5px] border-b-[#FA8F88] pb-2">PRODUCTOS</p>
-                <a href="../views/form-login.html"><button class="bg-black text-white font-semibold px-4 h-10 rounded-md text-lg hover:bg-white hover:text-black transition-all ease-in-out duration-300 button <?= salidaBtn(); ?>">Iniciar sesión</button></a>
+                <a href="../views/form-login.php"><button class="bg-black text-white font-semibold px-4 h-10 rounded-md text-lg hover:bg-white hover:text-black transition-all ease-in-out duration-300 button <?= salidaBtn(); ?>">Iniciar sesión</button></a>
             </div>
             <div class="flex w-full my-14 items-center">
                 <div class="">

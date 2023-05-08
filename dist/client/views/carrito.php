@@ -27,7 +27,13 @@ if ($resultado->num_rows > 0) {
 } else {
     // echo "No se encontraron resultados";
 }
-session_start();
+
+
+function retornarNombreUsuario() {
+  if (isset($_SESSION['usuario'])) {
+    return $_SESSION['nombre'];
+  }
+}
 
 $_SESSION['productos'] = $misProductos;
 // print_r($misProductos);
@@ -45,7 +51,7 @@ include ("./templates/header.php")
             <div class="flex justify-between w-full">
                 <p class="text-5xl border-b-[5px] border-b-[#FA8F88] pb-2">CARRITO</p>
                 <div class="flex items-center space-x-3">
-                    <p class="text-2xl">Rodrigo Pineda</p>
+                    <p class="text-2xl"><?= retornarNombreUsuario(); ?></p>
                     <img src="../images/user.svg" alt="">
                 </div>
             </div>
@@ -65,7 +71,7 @@ include ("./templates/header.php")
                     </div>
                     </form>
                     <?php }?>
-                <div class="w-[40%]">
+                <div class="w-[40%]" >
                     <div class="bg-[#FA8F88] rounded-t-xl p-8 space-y-5">
                         <p class="text-5xl pb-3">Total</p>
                         <div class="flex space-x-7">
