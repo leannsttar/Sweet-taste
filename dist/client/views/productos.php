@@ -63,7 +63,7 @@ $conn->close();
                 <?php  foreach ($misProductos as $producto) { ?>
                         
                 <form method="POST" action="../processes/enviar-carrito.php" class="p-3 border-[1px] shadow-xl rounded-xl w-64">
-                    <img src="../images/chococake.png" alt="" class="rounded-xl">
+                    <img src="../images/chef.png" alt="" class="rounded-xl">
                     <div class="my-5 px-4">
                         <p class="text-[#282424] text-2xl font-bold"><?php echo $producto['nombre'];  ?></p>
                         <p class="text-[#666666] font-light"><?php echo $producto['descripcion'];  ?></p>

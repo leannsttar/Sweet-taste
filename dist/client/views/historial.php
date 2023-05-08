@@ -15,7 +15,7 @@
             <div class="flex flex-wrap gap-10">
                 <?php foreach ($misProductos as $producto) { ?>
                 <div class="flex bg-[#FA8F88] p-6 rounded-xl w-[400px]">
-                    <img src="../images/" alt="" class="rounded-full w-20 h-20 object-cover mr-8">
+                    <img src="../images/chef.png" alt="" class="rounded-full w-20 h-20 object-cover mr-8">
                     <div class="flex space-x-16 items-center justify-between w-full">
                         <div class="space-y-2">
                             <p class="text-2xl font-semibold"><?php echo $producto['nombre']; ?></p>
