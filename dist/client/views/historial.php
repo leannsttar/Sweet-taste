@@ -45,7 +45,7 @@
                 <?php } ?>
             </div>
             <?php } else { ?>
-            <p>No hay productos añadidos en el carrito</p>
+            <p class="text-xl font-semibold">No existe historial sobre compras o pedidos realizados.</p>
             <?php } ?>
         </div>
     </div>
