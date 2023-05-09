@@ -13,9 +13,6 @@ include "../processes/UpdateItem.php";
 //     $productosdp[] = $pasteles;
 // }
 
-
-//abajo un foreach, para mostrar las cards y los productos disponibles :D (cuando ya te terminado todo)
-
 include "./templates/header.php"
 ?>
 
