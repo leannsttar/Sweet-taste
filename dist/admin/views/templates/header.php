@@ -10,7 +10,7 @@
 </head>
 <body class="flex">
     <div class="h-screen w-[13%] flex justify-center items-center">
-        <div class="flex flex-col bg-black text-white pt-4 space-y-16 justify-center items-center rounded-3xl fixed">
+        <div class="flex flex-col bg-gray-800 text-white pt-4 space-y-16 justify-center items-center rounded-3xl fixed">
             <div class="py-7 w-full flex justify-center"><img src="../images/lido_logo.png" alt="" class="w-32"></div>
             <a href="./productos_admin.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/menu.svg" alt=""></div></a>
             <a href="./historial_admin.php" class="w-full h-full"><div class="hover:bg-[#FA8F88] py-11 w-full flex justify-center"><img src="../images/historial.png" alt=""></div></a>
